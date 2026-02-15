@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Spectrum Global | Non-Extractive Capital for the Global South</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1e3a5f;
+            --color-secondary: #2a4a6f;
+            --color-lime: #b4d335;
+            --color-teal: #3bbfad;
+            --color-yellow: #e8d54a;
+            --color-accent: #b4d335;
+            --color-light: #f9fafb;
+            --color-cream: #f0f4f0;
+            --color-text: #1e3a5f;
+            --color-text-light: #5a6b7a;
+            --gradient-spectrum: linear-gradient(180deg, #e8d54a 0%, #b4d335 35%, #3bbfad 100%);
+            --font-display: 'DM Sans', -apple-system, sans-serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(249, 250, 251, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(30, 58, 95, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            text-decoration: none;
+            color: var(--color-primary);
+        }
+
+        .logo-mark {
+            width: 5px;
+            height: 44px;
+            background: var(--gradient-spectrum);
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--color-primary);
+            line-height: 1.15;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-spectrum);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-teal);
+        }
+
+        .nav-cta {
+            background: var(--color-primary);
+            color: white !important;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            transition: all 0.3s ease !important;
+            font-weight: 600;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--color-secondary);
+            transform: translateY(-1px);
+            color: white !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8rem 0 6rem;
+            background: linear-gradient(165deg, var(--color-primary) 0%, #152d4a 50%, #0f2236 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(59, 191, 173, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(180, 211, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(232, 213, 74, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-eyebrow {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-teal);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-spectrum);
+            border-radius: 2px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: var(--gradient-spectrum);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+            line-height: 1.75;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--color-lime);
+            color: var(--color-primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(180, 211, 53, 0.3);
+        }
+
+        .hero-cta:hover {
+            background: #a3c22e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(180, 211, 53, 0.4);
+        }
+
+        .hero-cta-secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            box-shadow: none;
+        }
+
+        .hero-cta-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
+            box-shadow: none;
+        }
+
+        .hero-cta svg {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-globe {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .globe-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .globe-ring-1 {
+            inset: 0;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .globe-ring-2 {
+            inset: 15%;
+            border-color: rgba(59, 191, 173, 0.2);
+            animation: pulse 4s ease-in-out infinite 0.5s;
+        }
+
+        .globe-ring-3 {
+            inset: 30%;
+            border-color: rgba(180, 211, 53, 0.2);
+            animation: pulse 4s ease-in-out infinite 1s;
+        }
+
+        .globe-center {
+            position: absolute;
+            inset: 35%;
+            background: var(--gradient-spectrum);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 60px rgba(180, 211, 53, 0.3);
+        }
+
+        .globe-center svg {
+            width: 50%;
+            height: 50%;
+            color: var(--color-primary);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.7;
+            }
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-lime);
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.25rem;
+        }
+
+        /* Three Dimensions Section */
+        .dimensions {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-eyebrow {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-teal);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            color: var(--color-primary);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            line-height: 1.75;
+        }
+
+        .dimensions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .dimension-card {
+            background: var(--color-light);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dimension-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-spectrum);
+        }
+
+        .dimension-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(30, 58, 95, 0.12);
+        }
+
+        .dimension-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-spectrum);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .dimension-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--color-primary);
+        }
+
+        .dimension-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .dimension-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .dimension-regions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .dimension-tag {
+            background: rgba(59, 191, 173, 0.12);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 6rem 0;
+            background: var(--color-cream);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(30, 58, 95, 0.06);
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(30, 58, 95, 0.12);
+        }
+
+        .event-header {
+            background: var(--color-primary);
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .event-header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-spectrum);
+        }
+
+        .event-date {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            color: white;
+        }
+
+        .event-date-day {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .event-date-month {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+        }
+
+        .event-body {
+            padding: 1.75rem;
+        }
+
+        .event-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .event-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+        }
+
+        .event-location svg {
+            width: 16px;
+            height: 16px;
+            color: var(--color-teal);
+        }
+
+        .event-description {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .event-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-teal);
+            text-decoration: none;
+            transition: gap 0.2s ease;
+        }
+
+        .event-cta:hover {
+            gap: 0.75rem;
+        }
+
+        .event-cta svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .partner-card {
+            background: var(--color-light);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-spectrum);
+            border-radius: 16px 0 0 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(30, 58, 95, 0.1);
+        }
+
+        .partner-card:hover::before {
+            opacity: 1;
+        }
+
+        .partner-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .partner-logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-spectrum);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .partner-logo-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-primary);
+        }
+
+        .partner-name {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .partner-card > p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .partner-focus {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .partner-tag {
+            background: rgba(180, 211, 53, 0.15);
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        /* Resources Section */
+        .resources {
+            padding: 6rem 0;
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .resources .section-eyebrow {
+            color: var(--color-lime);
+        }
+
+        .resources .section-title {
+            color: white;
+        }
+
+        .resources .section-description {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .resource-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-spectrum);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .resource-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-3px);
+        }
+
+        .resource-card:hover::before {
+            opacity: 1;
+        }
+
+        .resource-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(180, 211, 53, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .resource-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-lime);
+        }
+
+        .resource-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .resource-desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .resource-lock {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--color-lime);
+            font-weight: 600;
+        }
+
+        .resource-lock svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Signup Section */
+        .signup {
+            padding: 8rem 0;
+            background: linear-gradient(180deg, #ffffff 0%, var(--color-cream) 100%);
+        }
+
+        .signup-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .signup-content h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+
+        .signup-content > p {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+
+        .signup-benefits {
+            list-style: none;
+        }
+
+        .signup-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+
+        .signup-benefits svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-lime);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .signup-form-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(30, 58, 95, 0.1);
+            position: relative;
+        }
+
+        .signup-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 5px;
+            background: var(--gradient-spectrum);
+            border-radius: 16px 0 0 16px;
+        }
+
+        .signup-form h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1.75rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid #e0e4e8;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            background: var(--color-light);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-teal);
+            box-shadow: 0 0 0 3px rgba(59, 191, 173, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: var(--color-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(30, 58, 95, 0.2);
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-primary);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-logo-bar {
+            width: 5px;
+            height: 50px;
+            background: var(--gradient-spectrum);
+            border-radius: 3px;
+        }
+
+        .footer-logo-text {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: white;
+        }
+
+        .footer-brand > p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 320px;
+        }
+
+        .footer-links h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-lime);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--color-lime);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-primary);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Form Success State */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form-success svg {
+            width: 64px;
+            height: 64px;
+            color: var(--color-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-success h4 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .form-success p {
+            color: var(--color-text-light);
+        }
+
+        .signup-form.hidden {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-visual {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .dimensions-grid,
+            .partners-grid,
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .signup-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .dimensions-grid,
+            .partners-grid,
+            .events-grid,
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-mark"></div>
+                <span class="logo-text">Full<br>Spectrum<br>Global</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#dimensions">Our Work</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#signup" class="nav-cta">Join the Network</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Moving capital to the <em>Global South</em> in right relationship.</h1>
+                    <p class="hero-description">Full Spectrum Global accelerates restorative, community-centered capital flows to frontline communities—building a values-driven alternative to extractive and technocratic capital models.</p>
+                    <div class="hero-ctas">
+                        <a href="#signup" class="hero-cta">
+                            Join the Network
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#dimensions" class="hero-cta hero-cta-secondary">
+                            Explore Our Work
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-globe">
+                        <div class="globe-ring globe-ring-1"></div>
+                        <div class="globe-ring globe-ring-2"></div>
+                        <div class="globe-ring globe-ring-3"></div>
+                        <div class="globe-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Dimensions Section -->
+    <section class="dimensions" id="dimensions">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Our Work</div>
+                <h2 class="section-title">Three Dimensions of Global Capital Movement</h2>
+                <p class="section-description">We organize across interconnected dimensions to create a counterweight to extractive capital narratives and build lasting infrastructure for community-centered finance across Africa, South Asia, Latin America, and beyond.</p>
+            </div>
+            <div class="dimensions-grid">
+                <div class="dimension-card">
+                    <div class="dimension-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                    </div>
+                    <h3>Indigenous & Land-Based Strategies</h3>
+                    <p>Weaving Indigenous-led capital and governance models across continents. Supporting self-determined economic futures rooted in traditional knowledge, sovereignty, and land stewardship.</p>
+                </div>
+                <div class="dimension-card">
+                    <div class="dimension-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Africa & Global Black Diaspora</h3>
+                    <p>Centering the African continent while mapping intersections across the diaspora. Building connections between Black-led movements in Africa, the Americas, Caribbean, and Europe.</p>
+                </div>
+                <div class="dimension-card">
+                    <div class="dimension-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    </div>
+                    <h3>Global South Development</h3>
+                    <p>Engaging with global development actors to redirect resources toward community-centered solutions across the Global South—away from extractive models.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Upcoming Events</div>
+                <h2 class="section-title">Convenings & Gatherings</h2>
+                <p class="section-description">Join us at transformative events bringing together capital stewards, community leaders, and movement partners.</p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">
+                            <span class="event-date-day">12-14</span>
+                            <span class="event-date-month">Feb</span>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <h3 class="event-title">Mexico City Convening</h3>
+                        <div class="event-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Mexico City, Mexico
+                        </div>
+                        <p class="event-description">Regional gathering focused on Indigenous strategies and LATAM capital flows, building bridges between allocators and frontline communities.</p>
+                        <a href="#signup" class="event-cta">
+                            Learn More
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">
+                            <span class="event-date-day">21-23</span>
+                            <span class="event-date-month">April</span>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <h3 class="event-title">FS Global Convening</h3>
+                        <div class="event-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Bay Area, California
+                        </div>
+                        <p class="event-description">Our flagship gathering bringing together capital allocators, community partners, and movement leaders to align strategies and move resources.</p>
+                        <a href="#signup" class="event-cta">
+                            Register Interest
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">
+                            <span class="event-date-day">Apr</span>
+                            <span class="event-date-month">2026</span>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <h3 class="event-title">Black Diaspora Gathering</h3>
+                        <div class="event-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Location TBA
+                        </div>
+                        <p class="event-description">A dedicated space to map intersections, build connections, and mobilize capital for Black-led initiatives across the diaspora.</p>
+                        <a href="#signup" class="event-cta">
+                            Register Interest
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Our Network</div>
+                <h2 class="section-title">Strategic Partners</h2>
+                <p class="section-description">We collaborate with aligned organizations to ensure capital strategies are grounded in community realities and movement infrastructure.</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <div class="partner-logo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <span class="partner-name">Buen Vivir Institute</span>
+                    </div>
+                    <p>LATAM anchor serving frontline social enterprises and NGOs with blended capital, matchmaking, and holistic support for community well-being.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <div class="partner-logo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <span class="partner-name">Forward Global</span>
+                    </div>
+                    <p>Organizing new tech wealth toward impact, providing intervention opportunities upstream and countering extractive capital logic at the source.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <div class="partner-logo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <span class="partner-name">Opportunity Collaboration</span>
+                    </div>
+                    <p>Global connection engine bringing together allocators and practitioners working on poverty alleviation and sustainable development.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <div class="partner-logo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                        </div>
+                        <span class="partner-name">Francesco Collaborative</span>
+                    </div>
+                    <p>Values-aligned network rooted in moral economy principles, engaging Catholic and interfaith capital toward justice and human dignity.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <div class="partner-logo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <span class="partner-name">Kinflow</span>
+                    </div>
+                    <p>Collaborative of wealth navigators, legal strategists, spiritual guides, and movement advisors walking with capital stewards toward alignment.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <div class="partner-logo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <span class="partner-name">Nexus</span>
+                    </div>
+                    <p>Global network of next-generation wealth holders committed to social change, providing pathways for young inheritors to align capital with values.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Member Resources</div>
+                <h2 class="section-title">Tools & Insights</h2>
+                <p class="section-description">Access curated resources to deepen your understanding of non-extractive capital and Global South engagement.</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    </div>
+                    <h4 class="resource-title">Global South Capital Landscape</h4>
+                    <p class="resource-desc">Comprehensive mapping of capital flows, key actors, and opportunities across Africa, South Asia, Latin America, and Southeast Asia.</p>
+                    <div class="resource-lock">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Members Only
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <h4 class="resource-title">Non-Extractive Capital Guide</h4>
+                    <p class="resource-desc">Framework for evaluating and structuring investments that center community well-being across diverse regional contexts.</p>
+                    <div class="resource-lock">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Members Only
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <h4 class="resource-title">Regional Partner Directory</h4>
+                    <p class="resource-desc">Curated directory of aligned organizations, capital seekers, and practitioners across Africa, South Asia, and the Americas.</p>
+                    <div class="resource-lock">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Members Only
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section class="signup" id="signup">
+        <div class="container">
+            <div class="signup-container">
+                <div class="signup-content">
+                    <h2>Join the Full Spectrum Global Network</h2>
+                    <p>Connect with a community of capital stewards, movement partners, and practitioners committed to moving resources to the Global South in right relationship.</p>
+                    <ul class="signup-benefits">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Access to convenings and regional gatherings
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Connections with aligned partners and capital seekers
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Resources for non-extractive capital deployment
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Strategic guidance on Global South engagement
+                        </li>
+                    </ul>
+                </div>
+                <div class="signup-form-container">
+                    <form class="signup-form" id="signupForm">
+                        <h3>Express Interest</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" id="organization" name="organization">
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Your Role</label>
+                            <select id="role" name="role">
+                                <option value="">Select your role...</option>
+                                <option value="allocator">Capital Allocator</option>
+                                <option value="foundation">Foundation / Philanthropist</option>
+                                <option value="family-office">Family Office</option>
+                                <option value="practitioner">Practitioner / NGO</option>
+                                <option value="social-enterprise">Social Enterprise</option>
+                                <option value="advisor">Advisor / Consultant</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">What regions are you most interested in?</label>
+                            <select id="interest" name="interest">
+                                <option value="">Select primary interest...</option>
+                                <option value="africa">Africa</option>
+                                <option value="south-asia">South Asia</option>
+                                <option value="latam">Latin America & Caribbean</option>
+                                <option value="indigenous">Indigenous Strategies (Global)</option>
+                                <option value="black-diaspora">Africa & Global Black Diaspora</option>
+                                <option value="southeast-asia">Southeast Asia</option>
+                                <option value="multiple">Multiple Regions</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Anything else you'd like to share?</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your work, questions, or how you'd like to engage..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Join the Network</button>
+                        <p class="form-note">We'll be in touch within a few days to explore alignment.</p>
+                    </form>
+                    <div class="form-success" id="formSuccess">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <h4>Thank You!</h4>
+                        <p>We've received your interest and will be in touch soon to explore how we can work together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-bar"></div>
+                        <span class="footer-logo-text">Full<br>Spectrum<br>Global</span>
+                    </div>
+                    <p>Moving capital to the Global South in right relationship. Building a values-driven alternative to extractive capital models.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="#dimensions">Our Work</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#signup">Join the Network</a></li>
+                        <li><a href="https://fullspectrum.group" target="_blank">Full Spectrum Group</a></li>
+                        <li><a href="mailto:global@fullspectrum.group">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Full Spectrum Global. All rights reserved.</p>
+                <p>Part of <a href="https://fullspectrum.group" target="_blank">Full Spectrum Group</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission
+        const form = document.getElementById('signupForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Log data (replace with actual submission)
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            form.classList.add('hidden');
+            formSuccess.classList.add('show');
+            
+            // Optional: Reset after delay
+            setTimeout(() => {
+                form.reset();
+                form.classList.remove('hidden');
+                formSuccess.classList.remove('show');
+            }, 5000);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
