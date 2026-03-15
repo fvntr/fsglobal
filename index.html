@@ -80,6 +80,8 @@
             gap: 0;
             text-decoration: none;
             color: var(--color-primary);
+            position: relative;
+            z-index: 102;
         }
 
         .logo-mark {
@@ -151,6 +153,40 @@
             background: var(--color-secondary);
             transform: translateY(-1px);
             color: white !important;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            position: relative;
+            z-index: 102;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-primary);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .mobile-menu-btn.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
         }
 
         /* Hero Section */
@@ -525,10 +561,6 @@
         .footer-bottom a { color: var(--color-lime); text-decoration: none; }
         .footer-bottom a:hover { text-decoration: underline; }
 
-        /* Mobile */
-        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: var(--color-primary); margin: 5px 0; transition: all 0.3s ease; }
-
         /* Form Success State */
         .form-success { display: none; text-align: center; padding: 2rem; }
         .form-success.show { display: block; }
@@ -547,8 +579,38 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(249, 250, 251, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                z-index: 101;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
+
+            .nav-cta {
+                padding: 0.9rem 2rem;
+                font-size: 1.1rem;
+            }
+
             .hero h1 { font-size: 2.25rem; }
             .hero-stats { flex-direction: column; gap: 1.5rem; }
             .dimensions-grid, .partners-grid, .events-grid, .resources-grid { grid-template-columns: 1fr; }
@@ -567,14 +629,14 @@
                 <div class="logo-mark"></div>
                 <span class="logo-text">Full<br>Spectrum<br>Global</span>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#dimensions">Our Work</a></li>
                 <li><a href="#events">Events</a></li>
                 <li><a href="#partners">Partners</a></li>
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="#signup" class="nav-cta">Join the Network</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -953,6 +1015,25 @@
         const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            menuBtn.classList.toggle('open', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        // Close menu when any nav link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuBtn.classList.remove('open');
+                document.body.style.overflow = '';
+            });
         });
 
         // Form submission
