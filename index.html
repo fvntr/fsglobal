@@ -583,6 +583,10 @@
 
             .nav-links {
                 display: none !important;
+            }
+
+            .nav-links.open {
+                display: flex !important;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -594,10 +598,6 @@
                 justify-content: center;
                 gap: 2rem;
                 z-index: 101;
-            }
-
-            .nav-links.open {
-                display: flex !important;
             }
 
             .nav-links a {
